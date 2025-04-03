@@ -8,11 +8,30 @@
 </head>
 <body>
   <nav>
-    <a href="../index.html">Home</a> |
-    <a href="../projects/index.html">Projects</a> |
-    <a href="../contact/index.html">Contact</a> |
+    <a href="../index.html">Home</a>
+    <a href="../projects/index.html">Projects</a>
+    <a href="../contact/index.html">Contact</a>
     <a href="https://github.com/katrinasuherman" target="_blank">GitHub</a>
   </nav>
   <h1>Contact</h1>
+
+  <form action="mailto:ksuherman@ucsd.edu" method="POST" enctype="text/plain">
+    <label>
+      Email:
+      <input type="email" name="email">
+    </label>
+  
+    <label>
+      Subject:
+      <input name="subject">
+    </label>
+  
+    <label>
+      Body:
+      <textarea name="body"></textarea>
+    </label> 
+    <button>Submit</button>
+  </form>
+  
 </body>
 </html>
