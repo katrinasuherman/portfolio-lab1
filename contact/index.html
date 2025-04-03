@@ -1,40 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact</title>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
-    <nav>
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../projects/index.html">Projects</a></li>
-          <li><a href="../contact/index.html">Contact</a></li>
-          <li><a href="../resume/index.html">Resume</a></li>
-          <li><a href="https://github.com/katrinasuherman" target="_blank">GitHub</a></li>
-        </ul>
-      </nav>
+  <nav>
+    <ul>
+      <li><a href="../">Home</a></li>
+      <li><a href="../projects/">Projects</a></li>
+      <li><a href="../contact/">Contact</a></li>
+      <li><a href="../resume/">Resume</a></li>
+      <li><a href="https://github.com/katrinasuherman" target="_blank">GitHub</a></li>
+    </ul>
+  </nav>
+
   <h1>Contact</h1>
 
   <form action="mailto:ksuherman@ucsd.edu" method="POST" enctype="text/plain">
     <label>
       Email:
-      <input type="email" name="email">
+      <input type="email" name="email" required />
     </label>
-  
+
     <label>
       Subject:
-      <input name="subject">
+      <input name="subject" required />
     </label>
-  
+
     <label>
       Body:
-      <textarea name="body"></textarea>
-    </label> 
+      <textarea name="body" rows="5" cols="30" required></textarea>
+    </label>
+
     <button>Submit</button>
   </form>
-  
 </body>
 </html>
