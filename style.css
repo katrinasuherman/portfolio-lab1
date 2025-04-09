@@ -117,6 +117,30 @@ section {
   margin-bottom: 1.5rem;
 }
 
+time {
+  font-style: italic;
+  color: #555;
+  font-size: 0.9em;
+}
+
+section article {
+  margin-bottom: 1.5rem;
+}
+
+section h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  color: #222;
+}
+
+section {
+  background-color: #fafafa;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
 
 
 
