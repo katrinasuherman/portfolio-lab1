@@ -5,37 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact</title>
   <link rel="stylesheet" href="../style.css" />
+  <script src="../global.js" type="module"></script>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="../">Home</a></li>
-      <li><a href="../projects/">Projects</a></li>
-      <li><a href="../contact/" class="current">Contact</a></li>
-      <li><a href="../resume/">Resume</a></li>
-      <li><a href="https://github.com/katrinasuherman" target="_blank">GitHub</a></li>
-    </ul>
-  </nav>
 
   <h1>Contact</h1>
 
-  <form action="mailto:ksuherman@ucsd.edu" method="POST" enctype="text/plain">
-    <label>
-      Email:
-      <input type="email" name="email" required />
-    </label>
+<form id="contact-form" action="mailto:ksuherman@ucsd.edu">
+  <label>
+    Subject:
+    <input name="subject" required />
+  </label>
 
-    <label>
-      Subject:
-      <input name="subject" required />
-    </label>
+  <label>
+    Body:
+    <textarea name="body" required></textarea>
+  </label>
 
-    <label>
-      Body:
-      <textarea name="body" required></textarea>
-    </label>
-
-    <button>Send</button>
-  </form>
-</body>
+  <button>Send</button>
+</form>
 </html>
