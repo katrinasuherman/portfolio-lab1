@@ -136,11 +136,38 @@ section h3 {
   color: #222;
 }
 
-section {
+/* section {
   background-color: #fafafa;
   padding: 1.5rem;
   border-radius: 0.25rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+} */
+
+section {
+  background-color: Canvas;
+  color: CanvasText;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin-block: 2rem;
+}
+
+/* Dark mode override to improve visibility */
+@media (prefers-color-scheme: dark) {
+  section {
+    background-color: oklch(15% 0.01 200); /* darker but not pure black */
+    color: oklch(95% 0.02 260); /* light grayish-white text */
+    border-color: oklch(70% 3% 200 / 20%);
+  }
+
+  section h3,
+  section p,
+  section li,
+  section time {
+    color: oklch(95% 0.02 260); /* override darkened default text */
+  }
 }
 
 html {
