@@ -184,7 +184,57 @@ html {
   font-family: inherit;
 }
 
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
 
+#profile-stats dt {
+  grid-row: 1; /* All <dt> elements go in the first row */
+  font-weight: bold;
+}
 
+#profile-stats dd {
+  grid-row: 2; /* All <dd> elements go in the second row */
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-block: 2rem;
+}
+
+.projects article {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background-color: Canvas; /* compatible with light/dark mode */
+  padding: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+}
+
+.projects img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.projects h2, .projects h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.projects p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
 
   

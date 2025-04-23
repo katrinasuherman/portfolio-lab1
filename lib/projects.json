@@ -1,0 +1,75 @@
+[
+    {
+      "title": "Healthy Recipe Analyzer",
+      "year": "2024",
+      "image": "/images/recipe.png",
+      "description": "Built a nutrition-aware recipe classifier to suggest healthier ingredient alternatives."
+    },
+    {
+      "title": "Wildfire Damage Prediction",
+      "year": "2025",
+      "image": "/images/wildfire.png",
+      "description": "Used XGBoost to predict damage severity based on structural and environmental features."
+    },
+    {
+      "title": "Personal Portfolio Website",
+      "year": "2024",
+      "image": "/images/portfolio.png",
+      "description": "Built a responsive personal portfolio with dark/light mode toggle and GitHub stats."
+    },
+    {
+      "title": "DSC106 Lab 1 – Homepage",
+      "year": "2024",
+      "image": "/images/lab1.png",
+      "description": "Created the foundation of the personal homepage using semantic HTML and CSS."
+    },
+    {
+      "title": "DSC106 Lab 2 – Templating",
+      "year": "2024",
+      "image": "/images/lab2.png",
+      "description": "Templated repeating project items using JavaScript and external JSON data."
+    },
+    {
+      "title": "Air Quality Dashboard",
+      "year": "2023",
+      "image": "/images/air-quality.png",
+      "description": "Visualized real-time PM2.5 levels from EPA APIs in an interactive D3 chart."
+    },
+    {
+      "title": "Finance Risk Modeling",
+      "year": "2022",
+      "image": "/images/finance.png",
+      "description": "Modeled risk scores for financial clients using logistic regression and A/B testing."
+    },
+    {
+      "title": "Climate Policy Visualizer",
+      "year": "2025",
+      "image": "/images/climate.png",
+      "description": "Created a multi-view interactive map of AB32 climate outcomes using Tableau."
+    },
+    {
+      "title": "Movie Genre Classifier",
+      "year": "2023",
+      "image": "/images/movie.png",
+      "description": "Classified IMDb movie descriptions using Naive Bayes and TF-IDF vectorization."
+    },
+    {
+      "title": "CV Generator",
+      "year": "2022",
+      "image": "/images/cv.png",
+      "description": "Automated résumé layout generation from structured YAML content."
+    },
+    {
+      "title": "GitHub Activity Tracker",
+      "year": "2025",
+      "image": "/images/github.png",
+      "description": "Tracked public activity via GitHub’s API and visualized with grid-based summaries."
+    },
+    {
+      "title": "Placeholder Project",
+      "year": "2021",
+      "image": "/images/placeholder.png",
+      "description": "This is a filler project used to round out the project set to 12 items."
+    }
+  ]
+  

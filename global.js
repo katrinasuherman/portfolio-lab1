@@ -91,3 +91,69 @@ form?.addEventListener('submit', event => {
   const url = `${form.action}?${params.join('&')}`;
   location.href = url;
 });
+
+export async function fetchJSON(url) {
+  try {
+    // Fetch the JSON file from the given URL
+    const response = await fetch(url);
+    console.log(response); // Check the response in DevTools
+
+    // Handle error if fetch fails
+    if (!response.ok) {
+      throw new Error(`Failed to fetch projects: ${response.statusText}`);
+    }
+
+    // Parse and return the JSON
+    const data = await response.json();
+    return data;
+
+  } catch (error) {
+    console.error('Error fetching or parsing JSON data:', error);
+    return null; // Prevent the app from breaking
+  }
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  // Validate container
+  if (!containerElement) {
+    console.error('renderProjects error: Invalid containerElement.');
+    return;
+  }
+
+  // Validate heading level (only allow h1–h6)
+  if (!/^h[1-6]$/.test(headingLevel)) {
+    console.warn(`Invalid heading level "${headingLevel}". Defaulting to <h2>.`);
+    headingLevel = 'h2';
+  }
+
+  // Clear existing content
+  containerElement.innerHTML = '';
+
+  // Validate projects input
+  if (!Array.isArray(projects) || projects.length === 0) {
+    containerElement.innerHTML = `<p>No projects to display at this time.</p>`;
+    return;
+  }
+
+  // Loop through projects and render each
+  for (let project of projects) {
+    const article = document.createElement('article');
+
+    // Fallbacks for missing data
+    const title = project.title || 'Untitled Project';
+    const image = project.image || 'https://via.placeholder.com/150';
+    const description = project.description || 'No description provided.';
+
+    article.innerHTML = `
+      <${headingLevel}>${title}</${headingLevel}>
+      <img src="${image}" alt="${title}">
+      <p>${description}</p>
+    `;
+
+    containerElement.appendChild(article);
+  }
+}
+
+export async function fetchGitHubData(username) {
+  return fetchJSON(`https://api.github.com/users/${username}`);
+}
