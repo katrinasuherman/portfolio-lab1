@@ -203,21 +203,6 @@ html {
   font-size: 1.2rem;
 }
 
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-block: 2rem;
-}
-
-.projects article {
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  background-color: Canvas; /* compatible with light/dark mode */
-  padding: 1rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
-}
 
 .projects img {
   width: 100%;
