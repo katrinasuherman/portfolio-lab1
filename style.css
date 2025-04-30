@@ -222,4 +222,99 @@ html {
   line-height: 1.4;
 }
 
-  
+.project-year {
+  font-family: Baskerville;
+  font-variant-numeric: oldstyle-nums;
+}
+
+#projects-pie-plot svg{
+  max-width: 17em;
+  margin-block: 2em;
+
+  overflow: visible;
+}
+
+.swatch {
+  width: 0.9em;                /* Set width */
+  height: 0.9em;               /* Set height */
+  background-color: var(--color); /* Use CSS variable for color */
+  border-radius: 50%;          /* Make it a circle */
+  display: inline-block;       /* Required for width/height to take effect */
+  aspect-ratio: 1 / 1;         /* Ensures it's a square */
+  border: 1px solid #ccc;      /* Optional: adds a subtle border for clarity */
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 20px 0.5px;  /* ⬅️ outer spacing: rows x columns */
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  padding: 1em;
+  list-style: none;
+  margin-block: 2em;
+  flex:1;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 15px 0px;  
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2em;
+  flex-wrap: nowrap;        
+  padding-inline: 1rem;
+  margin-block: 2em;
+}
+.container svg {
+  width: 100%;        
+  max-width: 12em;     
+  min-width: 6em;      
+  height: auto;
+  flex-shrink: 1;      
+}
+
+.searchBar {
+  width: 100%;               /* Take full width of parent */
+  padding: 0.75em 1.25em;
+  font-size: 1.1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  box-sizing: border-box;    /* Ensures padding doesn't overflow */
+  margin-bottom: 2em;
+}
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+path {
+  transition: 300ms;
+}
+
+.selected {
+  --color: oklch(85% 0% 0) !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
+path {
+  cursor: pointer;
+}
+
+.projects img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.5 / 1;      /* Match the width:height ratio of the template */
+  object-fit: cover;          /* Crop to fit area */
+  border-radius: 0.5rem;
+  background-color: #e2e8f0;  /* Same gray background as template */
+}
+
