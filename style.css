@@ -318,3 +318,140 @@ path {
   background-color: #e2e8f0;  /* Same gray background as template */
 }
 
+.stats {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  font-family: system-ui, sans-serif;
+  background: white;
+  margin-bottom: 1rem;
+}
+
+.stats dt {
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #666;
+}
+
+.stats dd {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.gridlines line {
+  stroke: #ccc;
+  stroke-opacity: 0.5;
+  shape-rendering: crispEdges;
+}
+
+.gridlines path {
+  display: none;
+}
+
+
+dl.info {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 0.5em 1em;
+  font-size: 0.9em;
+  margin: 0;
+}
+
+dl.info dt {
+  font-weight: bold;
+  opacity: 0.6;
+  margin: 0;
+}
+
+dl.info dd {
+  margin: 0;
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 1em;
+  border-radius: 0.25em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0.75em 1em;
+  border-radius: 0.5em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+  font-size: 0.9em;
+  pointer-events: none; /* Prevents the tooltip from interfering with mouse events */
+  display: none; /* Initially hidden */
+  z-index: 10;
+}
+
+.tooltip dt {
+  font-weight: bold;
+  color: #666;
+  margin-top: 0.5em;
+}
+
+.tooltip dd {
+  margin: 0;
+  margin-left: 0.5em;
+  color: #333;
+}
+
+.tooltip a {
+  color: #007acc;
+  text-decoration: underline;
+}
+
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em 1em;
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+  opacity: 1;
+  visibility: visible;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: #ff6b6b;
+}
