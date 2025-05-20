@@ -3,14 +3,12 @@ html {
 }
 
 body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
-    font: 100%/1.5 system-ui;
-    max-width: 80ch;
-    margin-inline: auto;
-    padding: 1rem;
+  font: 100%/1.5 system-ui;
+  max-width: min(120ch, 80vw); /* Step 3.0: make page wider for scrollytelling */
+  margin-inline: auto;
+  padding: 1rem;
 }
+
 /* removing the ul, li
 */
 nav ul,
@@ -385,9 +383,6 @@ circle {
   transition: 200ms;
   transform-origin: center;
   transform-box: fill-box;
-  @starting-style {
-    r: 0;
-  }
 }
 
 circle:hover {
@@ -480,4 +475,147 @@ circle.selected {
   margin-left: 1em;
   font-style: italic;
   white-space: nowrap;
+}
+
+
+#filter-ui {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+#filter-ui label {
+  display: flex;
+  align-items: baseline;
+  font-weight: bold;
+}
+
+#selectedTime {
+  margin-left: auto;
+}
+
+/* circle {
+  transition: all 300ms ease-out, r calc(var(--r, 1) * 100ms);
+}
+
+@starting-style {
+  circle {
+    r: 0;
+  }
+} */
+
+.files {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.25rem 1rem;
+  margin-top: 1rem;
+}
+
+.files > div {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+.files dt {
+  font-weight: bold;
+}
+
+.files dd {
+  margin: 0;
+}
+
+/* Circle visual for each line */
+.line {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+
+/* Wrap circles neatly */
+.files dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+/* Style for line count under filename */
+.files code {
+  font-weight: bold;
+}
+
+.files small {
+  display: block;
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+
+
+
+#scrollytelling {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+#scroll-container {
+  grid-column: 1;
+  position: relative;
+  width: 95%;
+  height: 350px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  margin-bottom: 50px;
+}
+
+#chart {
+  grid-column: 2;
+}
+
+#spacer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none;
+  pointer-events: none;
+}
+
+#items-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.item {
+  height: 200px; /* Bigger height for full paragraph */
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #eee;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+
+#scroll-indicator {
+  position: absolute;
+  right: -5em;               /* Distance from scrollbar */
+  top: 1em;                  /* Distance from top of scroll container */
+  font-size: 0.85rem;
+  color: #666;
+  background: white;
+  padding: 0.3em 0.6em;
+  border: 1px solid #ccc;
+  border-radius: 0.3em;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 5;
 }
