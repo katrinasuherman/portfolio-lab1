@@ -15,6 +15,20 @@
   <script type="module" src="main.js"></script>
 
   <h2>Commits by time of day</h2>
+  <div id="commit-ui" style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
+    <label for="commitSlider">Show commits until:</label>
+    <input
+      type="range"
+      id="commitSlider"
+      min="0"
+      max="100"
+      value="100"
+      style="flex: 1;"
+    />
+    <time id="selectedTime" style="margin-left: auto; color: gray;">Loading...</time>
+  </div>
+  
+    
   <div id="chart"></div>
 
   <dl id="commit-tooltip" class="info tooltip" hidden>

@@ -455,3 +455,26 @@ dl.info[hidden]:not(:hover, :focus-within) {
 circle.selected {
   fill: #ff6b6b;
 }
+
+#filter-bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0 1em;
+}
+
+#slider {
+  flex-grow: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+#selectedTime {
+  margin-left: 1em;
+  font-style: italic;
+  white-space: nowrap;
+}
