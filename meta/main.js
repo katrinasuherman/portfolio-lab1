@@ -52,7 +52,6 @@ function processCommits(data) {
 let commits = processCommits(data);
 
 function renderCommitInfo(data, commits) {
-  d3.select('#stats').append('h2').text('Summary');
   const dl = d3.select('#stats').append('dl').attr('class', 'stats');
 
   dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
@@ -328,7 +327,7 @@ let totalHeight = (NUM_ITEMS - 1) * ITEM_HEIGHT;
 
 const scrollContainer = d3.select('#scroll-container');
 const spacer = d3.select('#spacer');
-spacer.style('height', `${totalHeight}px`);
+// spacer.style('height', `${totalHeight}px`);
 
 const itemsContainer = d3.select('#items-container');
 
@@ -421,3 +420,52 @@ function displayCommitFiles() {
     .attr('class', 'line')
     .style('background', (d) => fileTypeColors(d.type));
 }
+
+let NUM_FILE_ITEMS = commits.length;
+let FILE_ITEM_HEIGHT = 110;
+let FILE_VISIBLE_COUNT = 10;
+let fileTotalHeight = (NUM_FILE_ITEMS - 1) * FILE_ITEM_HEIGHT;
+
+const fileScrollContainer = d3.select('#file-scroll-container');
+const fileSpacer = d3.select('#file-spacer');
+fileSpacer.style('height', `${fileTotalHeight}px`);
+
+const fileItemsContainer = d3.select('#file-items-container');
+
+fileScrollContainer.on('scroll', () => {
+  const scrollTop = fileScrollContainer.property('scrollTop');
+  let startIndex = Math.floor(scrollTop / FILE_ITEM_HEIGHT);
+  startIndex = Math.max(0, Math.min(startIndex, commits.length - FILE_VISIBLE_COUNT));
+  renderFileNarratives(startIndex);
+});
+
+function renderFileNarratives(startIndex) {
+  fileItemsContainer.selectAll('div').remove();
+
+  const endIndex = Math.min(startIndex + FILE_VISIBLE_COUNT, commits.length);
+  const visibleCommits = commits.slice(startIndex, endIndex);
+
+  // Update the unit visualization to match
+  filteredCommits = visibleCommits;
+  displayCommitFiles();
+
+  fileItemsContainer.selectAll('div')
+    .data(visibleCommits)
+    .enter()
+    .append('div')
+    .attr('class', 'file-item')
+    .html((commit, index) => {
+      const fileCount = d3.rollups(commit.lines, D => D.length, d => d.file).length;
+      return `
+        <p>
+          On ${commit.datetime.toLocaleString("en", { dateStyle: "full", timeStyle: "short" })}, I edited
+          ${commit.totalLines} lines across ${fileCount} files during this commit.
+          It reshaped the structure of our codebase.
+        </p>
+      `;
+    })
+    .style('position', 'absolute')
+    .style('top', (_, idx) => `${idx * FILE_ITEM_HEIGHT}px`);
+}
+
+renderFileNarratives(0);

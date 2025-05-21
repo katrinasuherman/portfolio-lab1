@@ -11,25 +11,12 @@
 
   <h1>Meta</h1>
   <p>This page includes stats about the code of this website.</p>
-  <!-- <div id="filter-ui">
-    <label for="slider" style="flex: 1; align-items: baseline; display: flex;">
-      Show commits until:
-      <time id="selectedTime" style="margin-left: auto;"></time>
-    </label>
-    <input type="range" id="slider" min="0" max="100" value="100" />
-  </div> -->
-  <dl class="files"></dl>
+  <!-- <dl class="files"></dl> -->
   <div id="stats"></div>
   <script type="module" src="main.js"></script>
 
-  <h2>Commits by time of day</h2>
-
-
-
-
+  <h2>Evolution over time</h2>   
     
-    
-  <!-- <div id="chart"></div> -->
   <div id="scrollytelling">
     <div id="scroll-container">
       <div id="spacer"></div>
@@ -37,8 +24,29 @@
 
       <div id="items-container"></div>
     </div>
-    <!-- our old scatterplot div -->
-    <div id="chart"></div>
+    <div id="chart">
+      <h2 style="margin-top: 0;">Commits by Time of Day</h2>
+      <div id="scatterplot-container"></div>
+      <p id="selection-count">No commits selected</p>
+      <dl id="language-breakdown" class="stats"></dl>
+    </div>
+    
+    
+    
+    
+    
+  </div>
+  
+  
+  <div id="file-scrollytelling">
+    <!-- 📁 File unit visualization -->
+    <dl class="files"></dl>
+  
+    <!-- 📜 Narrative container for file edits -->
+    <div id="file-scroll-container">
+      <div id="file-spacer"></div>
+      <div id="file-items-container"></div>
+    </div>
   </div>
   
 
@@ -61,9 +69,7 @@
     <dd id="commit-lines"></dd>
   </dl>
 
-  <p id="selection-count">No commits selected</p>
 
-  <dl id="language-breakdown" class="stats"></dl>
 
 
 
@@ -72,3 +78,4 @@
 
 </body>
 </html>
+
