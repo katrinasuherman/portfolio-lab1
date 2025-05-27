@@ -57,7 +57,7 @@ let commits = processCommits(data);
   
 function renderCommitInfo(data, commits) {
     d3.select('#stats').html('');
-    d3.select('#stats').append('h2').text('Summary');
+    
     const dl = d3.select('#stats').append('dl').attr('class', 'stats');
   
     // Total LOC
@@ -448,6 +448,12 @@ function updateScatterPlot(data, commits) {
 }
 
 function updateFileDisplay(filteredCommits) {
+  d3.select('#files')
+  .html('') // Clear previous content
+  .append('h2')
+  .text('Codebase Evolution');
+
+  
   let lines = filteredCommits.flatMap((d) => d.lines);
 
   let files = d3
@@ -533,6 +539,10 @@ function updateTimeDisplay() {
 filterCommitsByTime();
 updateScatterPlot(data, filteredCommits);
 updateFileDisplay(filteredCommits); // initial render
+
+d3.select('#scatter-story')
+  .insert('h2', ':first-child')
+  .text('Evolution over time');
 
 d3.select('#scatter-story')
   .selectAll('.step')
