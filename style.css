@@ -728,6 +728,7 @@ circle.selected {
 
 #scrolly-2 > * {
   flex: 1;
+  margin-top: 5rem;
 }
 
 #files-story {
