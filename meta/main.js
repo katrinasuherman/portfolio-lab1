@@ -593,3 +593,38 @@ scroller
     step: '#scrolly-1 .step',         // the text blocks
   })
   .onStepEnter(onStepEnter);
+
+  d3.select('#files-story')
+  .selectAll('.step')
+  .data(commits)
+  .join('div')
+  .attr('class', 'step')
+  .html(
+    (d, i) => `
+      <p>
+        On ${d.datetime.toLocaleString('en', {
+          dateStyle: 'full',
+          timeStyle: 'short',
+        })}, the files in the project changed significantly.
+        <a href="${d.url}" target="_blank">${i > 0 ? 'See the commit' : 'First commit'}</a>.
+      </p>
+    `
+  );
+
+  function onFileStepEnter(response) {
+    const datetime = response.element.__data__.datetime;
+  
+    commitMaxTime = datetime;
+    filteredCommits = commits.filter(d => d.datetime <= commitMaxTime);
+    updateFileDisplay(filteredCommits);
+  }
+  
+  const fileScroller = scrollama();
+  
+  fileScroller
+    .setup({
+      container: '#scrolly-2',
+      step: '#scrolly-2 .step',
+    })
+    .onStepEnter(onFileStepEnter);
+  

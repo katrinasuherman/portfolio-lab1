@@ -13,7 +13,7 @@
   <p>This page includes stats about the code of this website.</p>
   <script type="module" src="main.js"></script>
 
-  <div id="commit-ui" style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
+  <!-- <div id="commit-ui" style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 12px;">
     <label for="commitSlider">Show commits until:</label>
     <input
       type="range"
@@ -24,7 +24,7 @@
       style="flex: 1;"
     />
     <time id="selectedTime" style="margin-left: auto; color: gray;">Loading...</time>
-  </div>
+  </div> -->
   
   <div id="stats"></div>
     
@@ -40,6 +40,17 @@
       <dl id="language-breakdown" class="stats"></dl>
     </div>
   </div>
+
+  <div id="scrolly-2">
+    <div id="files-viz">
+      <dl id="files"></dl> <!-- ✅ Visualization goes on the left -->
+    </div>
+    <div id="files-story">
+      <!-- Your .step elements will go here via D3 -->
+    </div>
+  </div>
+  
+  
   
 
   <dl id="commit-tooltip" class="info tooltip" hidden>

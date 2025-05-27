@@ -720,3 +720,24 @@ circle.selected {
   height: 50vh; /* 👈 very important for sticky behavior */
 }
 
+#scrolly-2 {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+}
+
+#scrolly-2 > * {
+  flex: 1;
+}
+
+#files-story {
+  position: relative;
+}
+
+#files-viz {
+  position: sticky;
+  top: 0;
+  height: 80vh;
+  overflow-y: auto;
+}
+
